@@ -3,7 +3,12 @@ import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListI
 import HomeIcon from '@mui/icons-material/Home';
 import { useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import { StarRate } from "@mui/icons-material";
 
+const iconMapping: any = {
+  home: HomeIcon,
+  star: StarRate
+};
 interface IListItemLinkProps {
   to: string;
   icon: string;
@@ -15,6 +20,7 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon, label, onClick }
   const navigate = useNavigate();
   const resolvePath = useResolvedPath(to);
   const match = useMatch({ path: resolvePath.pathname, end: false });
+  const IconComponent = iconMapping[icon] || HomeIcon;
 
   const handleClick = () => {
     navigate(to);
@@ -24,7 +30,7 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon, label, onClick }
   return (
     <ListItemButton selected={!!match} onClick={handleClick}>
       <ListItemIcon>
-        <HomeIcon />
+        <IconComponent />     
       </ListItemIcon>
       <ListItemText primary={label} />
     </ListItemButton>
