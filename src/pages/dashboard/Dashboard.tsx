@@ -1,8 +1,15 @@
+import { BarraDeFerramentas } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 
 export const Dashboard = () => {
   return (
-    <LayoutBaseDePagina titulo="Página inicial" barraDeFerramentas={<>barra de ferramentas</>}>
+    <LayoutBaseDePagina titulo="Página inicial"
+      barraDeFerramentas={(
+        <BarraDeFerramentas 
+          mostrarInputBusca
+          textoBotaoNovo="Nova"
+        />
+      )}>
       Dashboard
     </LayoutBaseDePagina>
   );
