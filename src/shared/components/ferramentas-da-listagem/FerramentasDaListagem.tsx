@@ -9,7 +9,7 @@ interface IFerramentasDaListagemProps {
   mostrarBotaoNovo?: boolean;
   aoClicarEmNovo?: () => void;
 }
-export const BarraDeFerramentas: React.FC<IFerramentasDaListagemProps> = ({
+export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
   textoDaBusca = '',
   mostrarInputBusca = false,
   aoMudarTextoDeBusca,
