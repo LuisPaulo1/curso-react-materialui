@@ -83,7 +83,7 @@ const deleteById = async (id: number): Promise<void | Error> => {
   }
 };
 
-export const PessoaService = {
+export const PessoasService = {
   getAll,
   getById,
   create,
