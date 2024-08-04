@@ -2,12 +2,12 @@
 import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material"
 import { useAppThemeContext, useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
-import { DarkModeSharp, LocationCitySharp } from "@mui/icons-material";
+import { DarkModeSharp, PeopleAltSharp } from "@mui/icons-material";
 import HomeIcon from '@mui/icons-material/Home';
 
 const iconMapping: any = {
   home: HomeIcon,
-  city: LocationCitySharp
+  people: PeopleAltSharp
 };
 interface IListItemLinkProps {
   to: string;
