@@ -1,8 +1,8 @@
 
 import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material"
-import { useAppThemeContext, useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useAuthContext, useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
-import { DarkModeSharp, LocationCitySharp, PeopleAltSharp } from "@mui/icons-material";
+import { DarkModeSharp, LocationCitySharp, LogoutSharp, PeopleAltSharp } from "@mui/icons-material";
 import HomeIcon from '@mui/icons-material/Home';
 
 const iconMapping: any = {
@@ -43,6 +43,7 @@ export const MenuLateral: React.FC<{ children: React.ReactNode }> = ({ children 
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme } = useAppThemeContext();
+  const { logout } = useAuthContext();
 
   return (
     <>
@@ -75,6 +76,12 @@ export const MenuLateral: React.FC<{ children: React.ReactNode }> = ({ children 
                   <DarkModeSharp />
                 </ListItemIcon>
                 <ListItemText primary="Alternar tema" />
+              </ListItemButton>
+              <ListItemButton onClick={logout}>
+                <ListItemIcon>
+                  <LogoutSharp />
+                </ListItemIcon>
+                <ListItemText primary="Sair" />
               </ListItemButton>
             </List>
           </Box>
