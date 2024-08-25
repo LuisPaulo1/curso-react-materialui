@@ -11,6 +11,7 @@ import { FerramentasDeDetalhe } from "../../shared/components";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasService";
 import { VForm, useVForm, VTextField } from "../../shared/forms";
 import { IVFormErrors } from "../../shared/forms/IVFormErrors";
+import { AutoCompleteCidade } from "./components/AutoCompleteCidade";
 
 interface IFormData {
   email: string;
@@ -42,8 +43,7 @@ export const DetalheDePessoas: React.FC = () => {
             alert(result.message);
             navigate('/pessoas');
           } else {
-            setNome(result.nomeCompleto);
-            console.log(result);
+            setNome(result.nomeCompleto);            
             formRef.current?.setData(result);
           }
         });
@@ -180,6 +180,12 @@ export const DetalheDePessoas: React.FC = () => {
                   label='Email'
                   disabled={isLoading}
                 />
+              </Grid>
+            </Grid>
+
+            <Grid container item direction="row" spacing={2}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <AutoCompleteCidade isExternalLoading={isLoading} />
               </Grid>
             </Grid>
 
